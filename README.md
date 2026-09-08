@@ -23,3 +23,15 @@ The scorer validates both files and creates `scorer_results/candidate_december.p
 - `validation_predictions.csv`
 - PDF or DOCX report containing your validation, data split approach and `candidate_december.png`
 - 2-3 minute Loom link
+
+## My code run instructions
+```bash
+python -m pip install -r requirements.txt
+# to get all cleaned and validated data to use in training
+python -m src.pipelines.data_pipeline
+# use the cleaned data from data pipeline to train the models and get the final best model
+python -m src.pipelines.training_pipeline
+# 
+python -m src.predictions.predict_validation
+python score.py --predictions validation_predictions.csv --december-predictions data/december_chart_inputs.csv
+```
